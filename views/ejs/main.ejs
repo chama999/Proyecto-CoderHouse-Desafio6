@@ -1,0 +1,46 @@
+<%- include('partials/header'); -%>
+    <div>
+        <h3>Carga Producto</h3>
+        <form 
+        action="/api/productos" 
+        method="post" 
+        enctype="multipart/form-data">
+
+        <form>
+        <div class="form-group">
+            <label for="title">Nombre*</label>
+            <input name="title" type="text" class="form-control" id="title" placeholder="Nombre del Producto">
+        </div>
+        <div class="form-group">
+            <label for="price">Precio*</label>
+            <input name="price" type="text" class="form-control" id="price" placeholder="Precio del Producto">
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-group-file" name="thumbail" id="file">
+        </div>
+          <button type="submit" class="btn btn-dark">Crear</button>
+        </form>
+
+        <div id="contenido">
+        </div>
+        <script src="script.js"></script>
+
+        <div>
+            <h2>Centro de mensajes</h2>
+            <br/>
+            <div id="chat">
+            </div>
+            <br/>
+            <form onsubmit="return addMessage(this)">
+                <input type="text" id="user"  placeholder="ejemplo@domain.com"
+                pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" required/><br/>
+                <input type="text" id="msn" placeholder="Ingrese su mensaje" /><br/>
+                <input type="submit" id="btn" value="Enviar!"/><br/>
+              </form>
+            <br/>
+            
+            <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+            <script src="socket.js"></script>
+        </div>
+    </div>
+<%- include('partials/footer'); -%>
